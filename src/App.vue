@@ -18,32 +18,29 @@ v-app(
 import Vue from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import Snackbar from '@/components/Snackbar.vue'
-import store from '@/store'
 import CookieLaw from 'vue-cookie-law'
 import { i18n } from '@/plugins/i18n'
 import Component from 'vue-class-component'
 import { namespace } from 'vuex-class'
 
-const AppStore = namespace('AppStore')
 const SnackbarStore = namespace('SnackbarStore')
 
 @Component({ components: { Navbar, CookieLaw, Snackbar } })
 export default class App extends Vue {
-  @AppStore.State dark!: boolean
   @SnackbarStore.Mutation hideSnackbar!: () => void
 
   get style() {
     return {
-      'background-color': this.dark ? '#303030' : '#fafafa',
+      'background-color': '#303030',
     }
   }
 
   created() {
-    this.$vuetify.theme.dark = this.dark
+    this.$vuetify.theme.dark = true
 
     const query = document.querySelector('meta[name="theme-color"]')
     if (query) {
-      query.setAttribute('content', this.dark ? '#303030' : '#fafafa')
+      query.setAttribute('content', '#303030')
     }
 
     this.hideSnackbar()

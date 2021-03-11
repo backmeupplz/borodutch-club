@@ -1,41 +1,23 @@
 import axios from 'axios'
 import { User } from '@/models/User'
+import store from '@/store'
 
-const base = 'https://template.com'
-
-export async function loginFacebook(accessToken: string) {
-  return (
-    await axios.post(`${base}/login/facebook`, {
-      accessToken,
-    })
-  ).data as User
-}
-
-export async function loginGoogle(accessToken: string) {
-  return (
-    await axios.post(`${base}/login/google`, {
-      accessToken,
-    })
-  ).data as User
-}
+const base = 'https://backend.club.borodutch.com'
 
 export async function loginTelegram(loginInfo: any) {
   return (await axios.post(`${base}/login/telegram`, loginInfo)).data as User
 }
 
-export async function reset(user: User) {
+export async function getUserInfo() {
   return (
-    await axios.post(
-      `${base}/users/reset`,
-      {},
-      {
-        headers: getHeaders(user),
-      }
-    )
+    await axios.get(`${base}/info`, {
+      headers: getHeaders(),
+    })
   ).data
 }
 
-function getHeaders(user: User) {
+function getHeaders() {
+  const user = (store as any).state.AppStore.user
   if (user.token) {
     return { token: user.token }
   } else {
