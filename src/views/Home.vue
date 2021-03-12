@@ -43,7 +43,7 @@ export default class Home extends Vue {
     try {
       const user = await loginTelegram(loginInfo)
       this.setUser(user)
-      this.$router.replace('cabinet')
+      this.$router.replace('chamber')
     } catch (err) {
       this.setSnackbarError('errors.telegram')
     }
