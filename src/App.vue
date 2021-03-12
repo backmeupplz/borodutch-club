@@ -5,8 +5,8 @@ v-app(
 )
   cookie-law(
     theme='blood-orange',
-    :buttonText='$t("cookieButton")',
-    :message='$t("cookieMessage")'
+    buttonText='Ясно!',
+    message='Клуб использует кукисы, чтобы сохранять информацию о вашем логине. Клуб не следит за вами.'
   )
   Navbar
   Snackbar
@@ -19,7 +19,6 @@ import Vue from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import Snackbar from '@/components/Snackbar.vue'
 import CookieLaw from 'vue-cookie-law'
-import { i18n } from '@/plugins/i18n'
 import Component from 'vue-class-component'
 import { namespace } from 'vuex-class'
 
@@ -44,14 +43,6 @@ export default class App extends Vue {
     }
 
     this.hideSnackbar()
-
-    document.title = i18n.t('title') as string
-  }
-
-  get metaInfo() {
-    return {
-      title: i18n.t('title') as string,
-    }
   }
 }
 </script>

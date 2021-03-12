@@ -8,15 +8,13 @@ div
     :color='color',
     flat
   )
-    span {{ text }}
+    span {{ message }}
     v-btn(color='white', text, @click='hideSnackbar') {{ $t("close") }}
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { i18n } from '@/plugins/i18n'
-import * as api from '@/utils/api'
 import { namespace } from 'vuex-class'
 
 const SnackbarStore = namespace('SnackbarStore')
@@ -34,15 +32,6 @@ export default class Snackbar extends Vue {
   }
   set safeActive(active: boolean) {
     this.setActive(active)
-  }
-
-  get text() {
-    const msg = this.message
-    return typeof msg === 'string'
-      ? msg === 'Internal Server Error'
-        ? i18n.t('errors.internal')
-        : i18n.t(this.message.toString())
-      : (msg as any)[i18n.locale]
   }
 }
 </script>

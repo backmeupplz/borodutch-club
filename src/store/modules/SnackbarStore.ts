@@ -1,11 +1,10 @@
-import { LocalizedError } from '@/models/LocalizedError'
 import { VuexModule, Module, Mutation } from 'vuex-module-decorators'
 
 @Module({ namespaced: true, name: 'SnackbarStore' })
 export default class SnackbarStore extends VuexModule {
-  message: String | LocalizedError = ''
+  message: string = ''
   active: boolean = false
-  color: String = 'success'
+  color: string = 'success'
 
   @Mutation
   setSnackbar(snackbarStore: SnackbarStore) {

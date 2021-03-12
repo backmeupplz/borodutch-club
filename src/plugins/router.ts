@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home.vue'
+import Chamber from '@/views/Chamber.vue'
 import NotFound from '@/views/NotFound.vue'
 import store from '@/store'
 
@@ -13,6 +14,11 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/chamber',
+      name: 'chamber',
+      component: Chamber,
     },
     {
       path: '*',
@@ -30,7 +36,7 @@ router.beforeEach((to, _, next) => {
     next('/')
   } else {
     if (to.path === '/' && user) {
-      next({ name: 'cabinet', query: to.query })
+      next({ name: 'chamber', query: to.query })
     } else {
       next()
     }
