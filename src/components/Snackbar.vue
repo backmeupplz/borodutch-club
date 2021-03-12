@@ -9,7 +9,7 @@ div
     flat
   )
     span {{ message }}
-    v-btn(color='white', text, @click='hideSnackbar') {{ $t("close") }}
+    v-btn(color='white', text, @click='hideSnackbar') Закрыть
 </template>
 
 <script lang="ts">

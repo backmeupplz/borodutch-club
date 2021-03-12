@@ -3,8 +3,7 @@
   // Main content
   v-layout.text-center(column, justify-center, align-center)
     v-flex(xs12, md10)
-      .headline.pb-4
-        Найс!
+      .headline.pb-4 Найс!
 
     v-flex.pt-4
       vue-telegram-login(
