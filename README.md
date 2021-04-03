@@ -2,20 +2,14 @@
 
 The code for the Borodutch Club website. `main` branch gets automatically deployed to [club.borodutch.com](https://club.borodutch.com).
 
-## Project setup
+## Available Scripts
 
-```
-yarn install
-```
+In the project directory, you can run:
 
-### Compiles and hot-reloads for development
+### `yarn start`
 
-```
-yarn serve
-```
+Runs the app in the development mode.
 
-### Compiles and minifies for production
+### `yarn build`
 
-```
-yarn build
-```
+Builds the app for production to the `docs` folder.
