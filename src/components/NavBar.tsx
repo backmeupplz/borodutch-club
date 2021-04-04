@@ -1,6 +1,6 @@
 import React from 'react'
-import { classnames } from 'helpers/tailwindClassnames'
-import gradientClassnames from 'helpers/gradientClassnames'
+import { classnames } from 'classnames/tailwind'
+import { LogoText } from 'components/Text'
 
 const navBar = classnames(
   'flex-auto',
@@ -9,16 +9,11 @@ const navBar = classnames(
   'top-0',
   'bg-black-background'
 )
-const gradientText = classnames(
-  gradientClassnames,
-  'bg-clip-text',
-  'text-transparent'
-)
 
 const NavBar = () => {
   return (
     <div className={navBar}>
-      <span className={gradientText}>BORODUTCH CLUB</span>
+      <LogoText>Бородач Клуб</LogoText>
     </div>
   )
 }
