@@ -3,7 +3,7 @@ import { classnames } from 'tailwindcss-classnames'
 import NavBar from 'components/NavBar'
 import Avatar from 'components/Avatar'
 
-const root = classnames('container', 'mx-auto', 'px-4')
+const root = classnames('container', 'mx-auto', 'px-4', 'max-w-4xl')
 const title = classnames('text-white', 'text-6xl', 'font-bold', 'text-center')
 const subtitle = classnames('text-gray-300', 'text-center', 'mt-4')
 
