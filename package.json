@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
-    "build": "BUILD_PATH='./docs' react-scripts build",
+    "build": "NODE_ENV=production BUILD_PATH='./docs' react-scripts build",
     "build:tailwind": "tailwindcss build src/index.css -o src/tailwind.output.css",
     "generate-css-types": "tailwindcss-classnames -o src/helpers/tailwindClassnames.ts",
     "prestart": "yarn build:tailwind && yarn generate-css-types",
