@@ -16,6 +16,10 @@ import PurposeItem from 'components/PurposeItem'
 import Steps from 'components/Steps'
 import Perks from 'components/Perks'
 import Faq from 'components/Faq'
+import LoginButton from 'components/LoginButton'
+import { classnames } from 'classnames/tailwind'
+
+const loginButton = classnames('my-6', 'flex', 'justify-center', 'items-center')
 
 const App = () => {
   const { userCount } = useApp()
@@ -116,6 +120,9 @@ const App = () => {
         Готовы начать? Зайдите в свой аккаунт через Телеграм, там вы сможете
         оплатить подписку и получить доступ к закрытой группе.
       </SubheaderText>
+      <div className={loginButton}>
+        <LoginButton />
+      </div>
     </Root>
   )
 }
