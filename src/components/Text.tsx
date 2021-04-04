@@ -23,7 +23,7 @@ const subheaderText = classnames(
   'md:text-2xl',
   'font-bold',
   'text-center',
-  'mb-6'
+  'my-12'
 )
 export const SubheaderText: FC = ({ children }) => {
   return <p className={subheaderText}>{children}</p>

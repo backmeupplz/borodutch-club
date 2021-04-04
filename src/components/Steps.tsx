@@ -12,7 +12,7 @@ type Props = {
   steps: Step[]
 }
 
-const container = classnames('my-4', 'flex', 'justify-center')
+const container = classnames('my-12', 'flex', 'justify-center')
 const stepsContainer = classnames('flex', 'flex-col')
 const stepContainer = classnames('flex', 'flex-row', 'w-full', 'my-2')
 const stepBallContainer = classnames('flex', 'justify-center', 'items-center')
