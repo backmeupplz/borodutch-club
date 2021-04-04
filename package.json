@@ -4,11 +4,6 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@types/classnames": "^2.2.11",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "classnames": "^2.3.1",
     "postcss": "^8.2.9",
     "react": "^17.0.2",
@@ -23,8 +18,9 @@
     "start": "BROWSER=none react-scripts start",
     "build": "BUILD_PATH='./docs' react-scripts build",
     "build:tailwind": "tailwindcss build src/index.css -o src/tailwind.output.css",
-    "prestart": "yarn build:tailwind",
-    "prebuild": "yarn build:tailwind",
+    "generate-css-types": "tailwindcss-classnames -o src/helpers/tailwindClassnames.ts",
+    "prestart": "yarn build:tailwind && yarn generate-css-types",
+    "prebuild": "yarn build:tailwind && yarn generate-css-types",
     "update": "yarn build && git add . && git commit -m 'update' && git push"
   },
   "eslintConfig": {
@@ -46,6 +42,10 @@
     ]
   },
   "devDependencies": {
-    "@types/tailwindcss": "^2.0.2"
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
   }
 }

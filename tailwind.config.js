@@ -6,7 +6,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        'background-black': '#040404',
+        black: {
+          background: '#040404',
+        },
+      },
+      borderRadius: {
+        avatar: '6rem',
       },
     },
     container: {
