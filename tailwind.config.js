@@ -1,7 +1,7 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
+  purge: ['./src/**/*.tsx', './src/**/*.ts'],
   theme: {
-    purge: ['./src/**/*.tsx', './src/**/*.ts'],
     fontFamily: {
       sans: 'Noto Sans',
     },
