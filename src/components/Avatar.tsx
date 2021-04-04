@@ -12,7 +12,7 @@ const Avatar = () => {
     <div className={container}>
       <div className={imageContainer}>
         <div className={imageBackground}>
-          <img className={image} src="images/avatar.png" alt="avatar" />
+          <img className={image} src="images/avatar.webp" alt="avatar" />
         </div>
       </div>
     </div>
