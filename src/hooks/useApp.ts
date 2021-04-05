@@ -4,7 +4,7 @@ const tokenKey = 'token'
 
 const useApp = () => {
   const [token, setToken] = useState<string | null>(
-    localStorage.getItem(tokenKey)
+    process.env.REACT_APP_TEMP_TOKEN || localStorage.getItem(tokenKey)
   )
 
   const setTokenProxy = (newToken: string | null) => {
