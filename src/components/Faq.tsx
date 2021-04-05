@@ -18,9 +18,7 @@ const Faq: FC<Props> = ({ questions }) => {
     <div className={container}>
       {questions.map((q) => (
         <div className={questionContainer}>
-          <BodyText>
-            <GradientText>{q.question}</GradientText>
-          </BodyText>
+          <BodyText>{q.question}</BodyText>
           <BodyText>{q.answer}</BodyText>
         </div>
       ))}
