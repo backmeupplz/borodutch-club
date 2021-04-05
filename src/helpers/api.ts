@@ -8,6 +8,9 @@ export async function login(user: TelegramUser) {
     await fetch(`${base}/login/telegram`, {
       method: 'POST',
       body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
   ).json()
 }
