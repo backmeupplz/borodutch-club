@@ -34,6 +34,11 @@ export const BodyText: FC = ({ children }) => {
   return <p className={bodyText}>{children}</p>
 }
 
+const boldBodyText = classnames(bodyText, 'font-bold')
+export const BoldBodyText: FC = ({ children }) => {
+  return <p className={boldBodyText}>{children}</p>
+}
+
 const purposeTitle = classnames(whiteText, 'text-center', 'text-lg')
 export const PurposeTitle: FC = ({ children }) => {
   return <p className={purposeTitle}>{children}</p>

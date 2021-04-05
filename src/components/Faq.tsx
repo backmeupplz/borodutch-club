@@ -1,6 +1,6 @@
 import { classnames } from 'classnames/tailwind'
 import React, { FC } from 'react'
-import { BodyText, GradientText } from './Text'
+import { BodyText, BoldBodyText } from 'components/Text'
 
 interface Question {
   question: string
@@ -18,7 +18,7 @@ const Faq: FC<Props> = ({ questions }) => {
     <div className={container}>
       {questions.map((q) => (
         <div className={questionContainer}>
-          <BodyText>{q.question}</BodyText>
+          <BoldBodyText>{q.question}</BoldBodyText>
           <BodyText>{q.answer}</BodyText>
         </div>
       ))}
