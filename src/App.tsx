@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Root>
       <NavBar setToken={setToken} token={token} />
-      {token ? <Dashboard /> : <Landing />}
+      {token ? <Dashboard token={token} /> : <Landing />}
     </Root>
   )
 }
