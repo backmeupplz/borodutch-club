@@ -25,6 +25,16 @@ export async function getInfo(token: string) {
   ).json()
 }
 
+export async function getChatInviteLink(token: string) {
+  return (
+    await fetch(`${base}/info/link`, {
+      headers: {
+        token,
+      },
+    })
+  ).json()
+}
+
 export async function getSubscriptionSession(token: string) {
   return (
     await fetch(`${base}/subscription/session`, {
