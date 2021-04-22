@@ -84,8 +84,9 @@ const Dashboard: FC<Props> = ({ token }) => {
         {!!chatInviteLink && (
           <MarginedContainer>
             <BodyText>
-              Ссылка валидна следущие 15 минут, зайти в группу могут только люди
-              с активной подпиской: <Link url={chatInviteLink}>Войти!</Link>
+              Ссылка валидна следующие 15 минут, зайти в группу могут только
+              люди с активной подпиской:{' '}
+              <Link url={chatInviteLink}>Войти!</Link>
             </BodyText>
           </MarginedContainer>
         )}
