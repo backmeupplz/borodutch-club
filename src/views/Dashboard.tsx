@@ -41,14 +41,19 @@ const Dashboard: FC<Props> = ({ token }) => {
     openPortal,
     fetchChatInviteLink,
     chatInviteLink,
+    inviterName,
+    inviteCode,
   } = useDashboard(token)
 
   const renderUnsubscribed = () => {
-    return (
+    return inviterName ? (
       <div>
         <BodyText>
+          Поздравляю! Твое приглашение пришло от {inviterName}
+        </BodyText>
+        <BodyText>
           Похоже, у тебя еще нет подписки. Чтобы получить пригласительную ссылку
-          в секретный чат, тебе нужно приобрести подписку в $23.11 в месяц,
+          в секретный чат, тебе нужно приобрести подписку в $46.22 в месяц,
           нажав на кнопку ниже!
         </BodyText>
         <ButtonContainer onClick={openCheckout}>
@@ -62,6 +67,13 @@ const Dashboard: FC<Props> = ({ token }) => {
           Ну или обновить страницу, вдруг что-то не подгрузилось
         </ButtonContainer>
       </div>
+    ) : (
+      <div>
+        <BodyText>
+          Вход в Клуб только по инвайтам. Как получить инвайт? У других членов
+          Клуба.
+        </BodyText>
+      </div>
     )
   }
 
@@ -72,6 +84,11 @@ const Dashboard: FC<Props> = ({ token }) => {
           Найс! У тебя получилось подписаться, подписка активна. Клацни кнопку
           ниже, если хочешь ее поменеджерить. Знай, что после отписки бот
           мгновенно удалит тебя из Бородач Клаба.
+        </BodyText>
+        <BodyText>
+          Твой инвайт-код: "{inviteCode}", используй его с умом. Давай
+          инвайт-код только людям, которых хочешь видеть в Клубе. Они смогут
+          оплатить подписку и зайти в Клуб!
         </BodyText>
         <ButtonContainer onClick={openPortal}>
           Менеджерить подписку

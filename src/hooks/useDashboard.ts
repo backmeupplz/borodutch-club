@@ -14,12 +14,16 @@ const useDashboard = (token: string) => {
   const [telegramId, setTelegramId] = useState<string | null>(null)
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null)
   const [chatInviteLink, setChatInviteLink] = useState<string | null>(null)
+  const [inviterName, setInviterName] = useState<string | null>(null)
+  const [inviteCode, setInviteCode] = useState<string | null>(null)
 
   const fetchData = async () => {
     const info = await getInfo(token)
     setName(info.name)
     setTelegramId(info.telegramId)
     setSubscriptionId(info.subscriptionId)
+    setInviterName(info.inviterName || null)
+    setInviteCode(info.inviteCode || null)
   }
 
   const openCheckout = async () => {
@@ -52,9 +56,11 @@ const useDashboard = (token: string) => {
     telegramId,
     subscriptionId,
     chatInviteLink,
+    inviterName,
     openCheckout,
     openPortal,
     fetchChatInviteLink,
+    inviteCode,
   }
 }
 
