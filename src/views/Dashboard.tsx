@@ -161,7 +161,7 @@ const Dashboard: FC<Props> = ({ token }) => {
   return (
     <div>
       <HeaderText>Привет, {name}!</HeaderText>
-      {!!subscriptionId ? renderUnsubscribed() : renderSubscribed()}
+      {!subscriptionId ? renderUnsubscribed() : renderSubscribed()}
       <BodyText>
         Если есть какие проблемы, пиши мне{' '}
         <Link url="https://t.me/borodutch">в личку</Link>.
