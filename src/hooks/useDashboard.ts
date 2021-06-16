@@ -55,7 +55,10 @@ const useDashboard = (token: string) => {
 
   const useCode = async () => {
     try {
-      await postCode(token, code)
+      const response = await postCode(token, code)
+      if (response.error) {
+        throw response.error
+      }
       await fetchData()
       alert('Получилось!')
     } catch (err) {

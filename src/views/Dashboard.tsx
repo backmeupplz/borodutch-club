@@ -55,7 +55,7 @@ const Dashboard: FC<Props> = ({ token }) => {
     return inviterName ? (
       <div>
         <BodyText>
-          Поздравляю! Твое приглашение пришло от {inviterName}
+          Поздравляю! Твое приглашение пришло от {inviterName}.
         </BodyText>
         <BodyText>
           Похоже, у тебя еще нет подписки. Чтобы получить пригласительную ссылку
