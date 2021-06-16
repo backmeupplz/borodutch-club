@@ -49,6 +49,10 @@ const Dashboard: FC<Props> = ({ token }) => {
     inviteCode,
     code,
     setCode,
+    waitlistEmail,
+    email,
+    setEmail,
+    useEmail,
   } = useDashboard(token)
 
   const renderUnsubscribed = () => {
@@ -91,6 +95,31 @@ const Dashboard: FC<Props> = ({ token }) => {
           />
           <ButtonContainer onClick={useCode}>Использовать!</ButtonContainer>
         </div>
+        {waitlistEmail ? (
+          <BodyText>
+            Отлично! Вы добавили имейл {waitlistEmail} в вейт-лист. Когда
+            откроется регистрация, я вам напишу!
+          </BodyText>
+        ) : (
+          <div>
+            <BodyText>
+              Ну или если не знаете никого из Клуба, оставьте свой имейл — я
+              напишу, когда снова откроется регистрация!
+            </BodyText>
+            <div className={formContainer}>
+              <input
+                type="email"
+                className={inputClass}
+                placeholder="email@domain.com"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }}
+              />
+              <ButtonContainer onClick={useEmail}>Подписаться!</ButtonContainer>
+            </div>
+          </div>
+        )}
       </div>
     )
   }
@@ -132,7 +161,7 @@ const Dashboard: FC<Props> = ({ token }) => {
   return (
     <div>
       <HeaderText>Привет, {name}!</HeaderText>
-      {!subscriptionId ? renderUnsubscribed() : renderSubscribed()}
+      {!!subscriptionId ? renderUnsubscribed() : renderSubscribed()}
       <BodyText>
         Если есть какие проблемы, пиши мне{' '}
         <Link url="https://t.me/borodutch">в личку</Link>.

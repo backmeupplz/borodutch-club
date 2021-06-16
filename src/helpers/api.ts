@@ -38,6 +38,19 @@ export async function postCode(token: string, inviteCode: string) {
   ).json()
 }
 
+export async function postEmail(token: string, email: string) {
+  return (
+    await fetch(`${base}/waitlist`, {
+      method: 'POST',
+      headers: {
+        token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+  ).json()
+}
+
 export async function getChatInviteLink(token: string) {
   return (
     await fetch(`${base}/info/link`, {
