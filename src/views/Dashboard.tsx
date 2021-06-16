@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { BodyText, HeaderText } from 'components/Text'
 import useDashboard from 'hooks/useDashboard'
 import Button from 'components/Button'
@@ -33,6 +33,9 @@ const ButtonContainer: FC<ButtonContainerProps> = ({ onClick, children }) => {
   )
 }
 
+const formContainer = classnames('flex', 'flex-row', 'justify-center', 'my-4')
+const inputClass = classnames('rounded', 'p-2', 'mr-4')
+
 const Dashboard: FC<Props> = ({ token }) => {
   const {
     name,
@@ -40,9 +43,12 @@ const Dashboard: FC<Props> = ({ token }) => {
     openCheckout,
     openPortal,
     fetchChatInviteLink,
+    useCode,
     chatInviteLink,
     inviterName,
     inviteCode,
+    code,
+    setCode,
   } = useDashboard(token)
 
   const renderUnsubscribed = () => {
@@ -71,8 +77,20 @@ const Dashboard: FC<Props> = ({ token }) => {
       <div>
         <BodyText>
           Вход в Клуб только по инвайтам. Как получить инвайт? У других членов
-          Клуба.
+          Клуба. Введите свой инвайт-код ниже и нажмите на кнопку.
         </BodyText>
+        <div className={formContainer}>
+          <input
+            type="text"
+            className={inputClass}
+            placeholder="Инвайт-код"
+            value={code}
+            onChange={(e) => {
+              setCode(e.target.value)
+            }}
+          />
+          <ButtonContainer onClick={useCode}>Использовать!</ButtonContainer>
+        </div>
       </div>
     )
   }

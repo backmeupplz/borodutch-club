@@ -25,6 +25,17 @@ export async function getInfo(token: string) {
   ).json()
 }
 
+export async function postCode(token: string, inviteCode: string) {
+  return fetch(`${base}/invite/code`, {
+    method: 'POST',
+    headers: {
+      token,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ inviteCode }),
+  })
+}
+
 export async function getChatInviteLink(token: string) {
   return (
     await fetch(`${base}/info/link`, {

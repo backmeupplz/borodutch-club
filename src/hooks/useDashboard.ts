@@ -3,6 +3,7 @@ import {
   getInfo,
   getPortal,
   getSubscriptionSession,
+  postCode,
 } from 'helpers/api'
 import { useEffect, useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
@@ -16,6 +17,7 @@ const useDashboard = (token: string) => {
   const [chatInviteLink, setChatInviteLink] = useState<string | null>(null)
   const [inviterName, setInviterName] = useState<string | null>(null)
   const [inviteCode, setInviteCode] = useState<string | null>(null)
+  const [code, setCode] = useState('')
 
   const fetchData = async () => {
     const info = await getInfo(token)
@@ -51,15 +53,28 @@ const useDashboard = (token: string) => {
     fetchData()
   }, [token])
 
+  const useCode = async () => {
+    try {
+      await postCode(token, code)
+      await fetchData()
+      alert('Получилось!')
+    } catch (err) {
+      alert('Ошибка! Может, код не тот?')
+    }
+  }
+
   return {
     name,
     telegramId,
     subscriptionId,
     chatInviteLink,
     inviterName,
+    code,
+    setCode,
     openCheckout,
     openPortal,
     fetchChatInviteLink,
+    useCode,
     inviteCode,
   }
 }
