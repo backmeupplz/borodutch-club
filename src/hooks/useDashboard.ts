@@ -22,16 +22,6 @@ const useDashboard = (token: string) => {
   const [code, setCode] = useState('')
   const [email, setEmail] = useState('')
 
-  const fetchData = async () => {
-    const info = await getInfo(token)
-    setName(info.name)
-    setTelegramId(info.telegramId)
-    setSubscriptionId(info.subscriptionId)
-    setInviterName(info.inviterName || null)
-    setInviteCode(info.inviteCode || null)
-    setWaitlistEmail(info.waitlistEmail || null)
-  }
-
   const openCheckout = async () => {
     const stripe = await stripePromise
     if (!stripe) {
@@ -54,6 +44,15 @@ const useDashboard = (token: string) => {
   }
 
   useEffect(() => {
+    const fetchData = async () => {
+      const info = await getInfo(token)
+      setName(info.name)
+      setTelegramId(info.telegramId)
+      setSubscriptionId(info.subscriptionId)
+      setInviterName(info.inviterName || null)
+      setInviteCode(info.inviteCode || null)
+      setWaitlistEmail(info.waitlistEmail || null)
+    }
     fetchData()
   }, [token])
 
@@ -62,6 +61,15 @@ const useDashboard = (token: string) => {
       const response = await postCode(token, code)
       if (response.error) {
         throw response.error
+      }
+      const fetchData = async () => {
+        const info = await getInfo(token)
+        setName(info.name)
+        setTelegramId(info.telegramId)
+        setSubscriptionId(info.subscriptionId)
+        setInviterName(info.inviterName || null)
+        setInviteCode(info.inviteCode || null)
+        setWaitlistEmail(info.waitlistEmail || null)
       }
       await fetchData()
       alert('Получилось!')
@@ -75,6 +83,15 @@ const useDashboard = (token: string) => {
       const response = await postEmail(token, email)
       if (response.error) {
         throw response.error
+      }
+      const fetchData = async () => {
+        const info = await getInfo(token)
+        setName(info.name)
+        setTelegramId(info.telegramId)
+        setSubscriptionId(info.subscriptionId)
+        setInviterName(info.inviterName || null)
+        setInviteCode(info.inviteCode || null)
+        setWaitlistEmail(info.waitlistEmail || null)
       }
       await fetchData()
       alert('Получилось!')

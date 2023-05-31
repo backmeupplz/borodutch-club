@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { BodyText, HeaderText } from 'components/Text'
 import useDashboard from 'hooks/useDashboard'
 import Button from 'components/Button'
