@@ -91,7 +91,7 @@ const Dashboard: FC<Props> = ({ token }) => {
               setCode(e.target.value)
             }}
           />
-          <ButtonContainer onClick={useCode}>Использовать!</ButtonContainer>
+          <ButtonContainer onClick={useCode}>Use the code!</ButtonContainer>
         </div>
         {waitlistEmail ? (
           <BodyText>
@@ -114,7 +114,9 @@ const Dashboard: FC<Props> = ({ token }) => {
                   setEmail(e.target.value)
                 }}
               />
-              <ButtonContainer onClick={useEmail}>Subscribe!</ButtonContainer>
+              <ButtonContainer onClick={useEmail}>
+                Join the waitlist!
+              </ButtonContainer>
             </div>
           </div>
         )}
