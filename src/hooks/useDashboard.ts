@@ -72,9 +72,9 @@ const useDashboard = (token: string) => {
         setWaitlistEmail(info.waitlistEmail || null)
       }
       await fetchData()
-      alert('Получилось!')
+      alert('Success!')
     } catch (err) {
-      alert('Ошибка! Может, код не тот?')
+      alert("Got an error! Maybe the code isn't valid?")
     }
   }
 
@@ -94,9 +94,9 @@ const useDashboard = (token: string) => {
         setWaitlistEmail(info.waitlistEmail || null)
       }
       await fetchData()
-      alert('Получилось!')
+      alert('Success!')
     } catch (err) {
-      alert('Ошибка! Может, имейл невалидный?')
+      alert('Got an error! Maybe your email is invalid?')
     }
   }
 

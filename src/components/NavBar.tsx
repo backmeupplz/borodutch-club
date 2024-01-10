@@ -25,14 +25,14 @@ type Props = {
 const NavBar: FC<Props> = ({ setToken, token }) => {
   return (
     <div className={navBar}>
-      <LogoText>Бородач Клуб</LogoText>
+      <LogoText>Borodutch Club</LogoText>
       {token ? (
         <Button
           onClick={() => {
             setToken(null)
           }}
         >
-          Выйти
+          Logout
         </Button>
       ) : (
         <TelegramLoginButton

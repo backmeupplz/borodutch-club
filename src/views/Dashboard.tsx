@@ -59,35 +59,33 @@ const Dashboard: FC<Props> = ({ token }) => {
     return inviterName ? (
       <div>
         <BodyText>
-          Поздравляю! Твое приглашение пришло от {inviterName}.
+          Congratulations! Your invite came from {inviterName}.
         </BodyText>
         <BodyText>
-          Похоже, у тебя еще нет подписки. Чтобы получить пригласительную ссылку
-          в секретный чат, тебе нужно приобрести подписку в $69.33 в месяц,
-          нажав на кнопку ниже!
+          Looks like you don't have a subscription yet. To get an invite link to
+          the private group, you need to purchase a subscription for $23.11 a
+          month below!
         </BodyText>
-        <ButtonContainer onClick={openCheckout}>
-          Оформить подписку!
-        </ButtonContainer>
+        <ButtonContainer onClick={openCheckout}>Subscribe!</ButtonContainer>
         <ButtonContainer
           onClick={() => {
             window.location.reload()
           }}
         >
-          Ну или обновить страницу, вдруг что-то не подгрузилось
+          (or refresh the page if something broke)
         </ButtonContainer>
       </div>
     ) : (
       <div>
         <BodyText>
-          Вход в Клуб только по инвайтам. Как получить инвайт? У других членов
-          Клуба. Введите свой инвайт-код ниже и нажмите на кнопку.
+          Borodutch Club is invite-only. You can get an invite from an active
+          Club member. Enter the invite code below and press the button!
         </BodyText>
         <div className={formContainer}>
           <input
             type="text"
             className={inputClass}
-            placeholder="Инвайт-код"
+            placeholder="Invite code"
             value={code}
             onChange={(e) => {
               setCode(e.target.value)
@@ -97,14 +95,14 @@ const Dashboard: FC<Props> = ({ token }) => {
         </div>
         {waitlistEmail ? (
           <BodyText>
-            Отлично! Вы добавили имейл {waitlistEmail} в вейт-лист. Когда
-            откроется регистрация, я вам напишу!
+            Amazing! You have added {waitlistEmail} to the wait list. I'll email
+            you when I'll open the registration!
           </BodyText>
         ) : (
           <div>
             <BodyText>
-              Ну или если не знаете никого из Клуба, оставьте свой имейл — я
-              напишу, когда снова откроется регистрация!
+              Or if you don't know anyone from the Club, leave your email here —
+              then I'll reach out when the registration will be open for you!
             </BodyText>
             <div className={formContainer}>
               <input
@@ -116,7 +114,7 @@ const Dashboard: FC<Props> = ({ token }) => {
                   setEmail(e.target.value)
                 }}
               />
-              <ButtonContainer onClick={useEmail}>Подписаться!</ButtonContainer>
+              <ButtonContainer onClick={useEmail}>Subscribe!</ButtonContainer>
             </div>
           </div>
         )}
@@ -128,29 +126,30 @@ const Dashboard: FC<Props> = ({ token }) => {
     return (
       <div>
         <BodyText>
-          Найс! У тебя получилось подписаться, подписка активна. Клацни кнопку
-          ниже, если хочешь ее поменеджерить. Знай, что после отписки бот
-          мгновенно удалит тебя из Бородач Клаба.
+          Nice! You've managed to subscribe, and your subscription is active.
+          Click the button below if you want to manage it. Be aware that after
+          unsubscribing, the bot will instantly remove you from the Borodutch
+          Club.
         </BodyText>
         <BodyText>
-          Твой инвайт-код: "{inviteCode}", используй его с умом. Давай
-          инвайт-код только людям, которых хочешь видеть в Клубе. Они смогут
-          оплатить подписку и зайти в Клуб!
+          Your invite code: "{inviteCode}", use it wisely. Only give the code to
+          the people whom you want to see in the Club. They will be able to pay
+          for the subscription and enter the Club!
         </BodyText>
         <ButtonContainer onClick={openPortal}>
-          Менеджерить подписку
+          Manage subscription
         </ButtonContainer>
         {!chatInviteLink && (
           <ButtonContainer onClick={fetchChatInviteLink}>
-            Получить ссылку-инвайт!
+            Get an invite link!
           </ButtonContainer>
         )}
         {!!chatInviteLink && (
           <MarginedContainer>
             <BodyText>
-              Ссылка валидна следующие 15 минут, зайти в группу могут только
-              люди с активной подпиской:{' '}
-              <Link url={chatInviteLink}>Войти!</Link>
+              The link is valid for the next 15 minutes, and only people with an
+              active subscription can enter the group:{' '}
+              <Link url={chatInviteLink}>Enter!</Link>
             </BodyText>
           </MarginedContainer>
         )}
@@ -160,16 +159,16 @@ const Dashboard: FC<Props> = ({ token }) => {
 
   return (
     <div>
-      <HeaderText>Привет, {name}!</HeaderText>
+      <HeaderText>Hi, {name}!</HeaderText>
       {!subscriptionId ? renderUnsubscribed() : renderSubscribed()}
       <BodyText>
-        Если есть какие проблемы, пиши мне{' '}
-        <Link url="https://t.me/borodutch">в личку</Link>.
+        If you have any issues, contact me{' '}
+        <Link url="https://t.me/borodutch">on Telegram</Link>.
       </BodyText>
       <BodyText>
-        Главный документ Клуба{' '}
-        <Link url="https://telegra.ph/Glavnyj-dokument-Borodach-Kluba-04-05">
-          тут
+        The Main Document of the Club{' '}
+        <Link url="https://telegra.ph/The-Main-Document-of-Borodutch-Club-01-03">
+          is here
         </Link>
         .
       </BodyText>

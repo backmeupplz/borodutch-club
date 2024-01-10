@@ -45,9 +45,9 @@ const Steps: FC<Props> = ({ steps }) => {
   return (
     <div>
       <BodyText>
-        У нас в клубе запускают MVP и сразу находят пользователей, а не выводят
-        на рынок комплексное решение, которое никому не нужно. Стандартный
-        процесс запуска продукта выглядит вот так:
+        In our Club, we launch an MVP and immediately find users, instead of
+        bringing to the market a complicated solution that nobody needs. The
+        standard product launch process looks like this:
       </BodyText>
       <div className={container}>
         <div className={stepsContainer}>
